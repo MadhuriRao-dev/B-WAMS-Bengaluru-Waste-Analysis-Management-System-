@@ -121,7 +121,7 @@ function ComplaintListModal({ title, userId, statusFilter, onClose }) {
     );
 }
 
-export default function Navbar({ showUserMenu = true, customMenuItems = [] }) {
+export default function Navbar({ showUserMenu = true, customMenuItems = [], isLanding = false }) {
     const { currentUser, userRole, logout } = useAuth();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [showProfile, setShowProfile] = useState(false);
@@ -145,6 +145,18 @@ export default function Navbar({ showUserMenu = true, customMenuItems = [] }) {
                         <img src="/logo.png" alt="Logo" className="navbar-logo" />
                         <span>B-WAMS</span>
                     </div>
+
+                    {isLanding && (
+                        <div className="landing-nav-links" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                            <a href="#home" style={{ color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Home</a>
+                            <a href="#features" style={{ color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Features</a>
+                            <a href="#how-it-works" style={{ color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>How It Works</a>
+                            <a href="#technology" style={{ color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Technology</a>
+                            <a href="/login" style={{ color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Dashboard</a>
+                            <a href="#contact" style={{ color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Contact</a>
+                            <a href="/register" className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: '0.85rem' }}>Report Waste</a>
+                        </div>
+                    )}
 
                     {showUserMenu && currentUser && (
                         <div className="nav-actions">

@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import Landing from './pages/Landing';
 import CitizenDashboard from './pages/CitizenDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import WorkerDashboard from './pages/WorkerDashboard';
@@ -12,7 +14,7 @@ function PrivateRoute({ children, roleRequired }) {
   if (loading) return <div className="container">Loading...</div>;
 
   if (!currentUser) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 
   if (roleRequired && userRole !== roleRequired) {
@@ -49,7 +51,19 @@ function App() {
         <Routes>
           <Route path="/" element={
             <PublicRoute>
+              <Landing />
+            </PublicRoute>
+          } />
+
+          <Route path="/login" element={
+            <PublicRoute>
               <Login />
+            </PublicRoute>
+          } />
+
+          <Route path="/register" element={
+            <PublicRoute>
+              <Register />
             </PublicRoute>
           } />
 

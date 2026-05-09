@@ -1,32 +1,40 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
         <footer className="footer-container">
-            {/* Stats Section */}
-            <div className="footer-stats">
-                <div className="stat-item">
-                    <h3 className="stat-number">500+</h3>
-                    <p className="stat-label">Complaints Solved</p>
-                </div>
-                <div className="stat-item">
-                    <h3 className="stat-number">100+</h3>
-                    <p className="stat-label">Active Volunteers</p>
-                </div>
-                <div className="stat-item">
-                    <h3 className="stat-number">50+</h3>
-                    <p className="stat-label">Areas Covered</p>
-                </div>
-                <div className="stat-item">
-                    <h3 className="stat-number">24hr</h3>
-                    <p className="stat-label">Avg Response</p>
-                </div>
-            </div>
+            <div className="container">
+                <div className="footer-grid">
+                    <div className="footer-brand">
+                        <h2>B-WAMS</h2>
+                        <p>Bengaluru Waste Management & Analytics System</p>
+                    </div>
+                    
+                    <div className="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/#features">Features</a></li>
+                            <li><Link to="/login">Dashboard</Link></li>
+                            <li><a href="/#technology">Technology</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </div>
 
-            {/* Copyright Section */}
-            <div className="footer-copyright">
-                <p>&copy; {new Date().getFullYear()} B-WAMS (Bengaluru Waste Analytics & Management System). All rights reserved.</p>
+                    <div className="footer-contact" id="contact">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="mailto:support@bwams.in">support@bwams.in</a></li>
+                            <li>Bengaluru, Karnataka, India</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </footer >
+            
+            <div className="footer-copyright">
+                <p>&copy; 2026 B-WAMS. All rights reserved.</p>
+            </div>
+        </footer>
     );
 }
